@@ -8,7 +8,6 @@ import EducationalSection from "@/components/educational-section";
 import { calculateIndividualTax, calculateCorporateTax, compareTaxResults } from "@/lib/tax-calculations";
 import type { TaxComparison } from "@/lib/tax-calculations";
 import CoupangWidget from "@/components/CoupangWidget";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import AdblockSoftModal from "@/components/AdblockSoftModal";
 
 export default function TaxCalculator() {

@@ -52,19 +52,20 @@ export default function TaxCalculator() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="relative bg-gray-50 min-h-screen">
       {/* 광고 차단 Soft Block */}
       <AdblockSoftModal />
       {/* 사이드 광고 (데스크톱 전용) */}
-      <CoupangWidget 
-        className="hidden lg:block fixed top-32 left-16 xl:left-16 w-[160px] z-10"
-        bannerId={880307} 
-        trackingCode="AF1730588" />
-      <CoupangWidget 
-        className="hidden lg:block fixed top-32 right-16 xl:right-16 w-[160px] z-10"
-        bannerId={880286} 
-        trackingCode="AF1730588" />
-
+      <div className="hidden lg:hidden xl:block absolute top-32 left-16 xl:left-16 w-[160px] z-10">
+        <CoupangWidget 
+          bannerId={880307} 
+          trackingCode="AF1730588" />
+      </div>
+      <div className="hidden lg:hidden xl:block absolute top-32 right-16 xl:right-16 w-[160px] z-10">
+        <CoupangWidget 
+          bannerId={880286} 
+          trackingCode="AF1730588" />
+      </div>
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -117,12 +118,12 @@ export default function TaxCalculator() {
           <p className="text-gray-500 text-sm mt-2">이 사이트는 광고 수익으로 운영되는 사이트 입니다.</p>
         </div>
       </footer>
-      <div className="flex flex-row justify-center items-center gap-4 mt-8">
+      <div className="flex flex-row justify-center items-center gap-4 mt-8 overflow-y-hidden overflow-x-scroll">
         <CoupangWidget 
           bannerId={880311} 
           trackingCode="AF1730588" />
         <CoupangWidget
-          className="lg:block hidden" 
+          className="hidden lg:hidden xl:block" 
           bannerId={880310} 
           trackingCode="AF1730588" />
       </div>

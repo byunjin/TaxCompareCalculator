@@ -9,6 +9,7 @@ import { calculateIndividualTax, calculateCorporateTax, compareTaxResults } from
 import type { TaxComparison } from "@/lib/tax-calculations";
 import CoupangWidget from "@/components/CoupangWidget";
 import AdSenseSlot from "@/components/AdSenseSlot";
+import AdblockSoftModal from "@/components/AdblockSoftModal";
 
 export default function TaxCalculator() {
   const [calculationResult, setCalculationResult] = useState<{
@@ -52,10 +53,9 @@ export default function TaxCalculator() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* 광고 차단 Soft Block */}
+      <AdblockSoftModal />
       {/* 사이드 광고 (데스크톱 전용) */}
-      <div className="hidden lg:block fixed top-32 right-2 xl:right-6 w-[160px] z-10 bg-black">
-      dsadadsa
-      </div>
       <CoupangWidget 
         className="hidden lg:block fixed top-32 left-16 xl:left-16 w-[160px] z-10"
         bannerId={880307} 
@@ -114,13 +114,15 @@ export default function TaxCalculator() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400">© 2025 세금 계산기. 2025년 세법 기준으로 제작되었습니다.</p>
           <p className="text-gray-500 text-sm mt-2">정확한 세무 계획을 위해서는 세무 전문가와 상담하시기 바랍니다.</p>
+          <p className="text-gray-500 text-sm mt-2">이 사이트는 광고 수익으로 운영되는 사이트 입니다.</p>
         </div>
       </footer>
       <div className="flex flex-row justify-center items-center gap-4 mt-8">
         <CoupangWidget 
           bannerId={880311} 
           trackingCode="AF1730588" />
-                <CoupangWidget 
+        <CoupangWidget
+          className="lg:block hidden" 
           bannerId={880310} 
           trackingCode="AF1730588" />
       </div>

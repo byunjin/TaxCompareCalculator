@@ -25,9 +25,10 @@ export default function TaxCalculatorForm({ onCalculate }: TaxCalculatorFormProp
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const revenue = parseInt(formData.revenue) || 0;
-    const expenses = parseInt(formData.expenses) || 0;
-    const deductions = parseInt(formData.deductions) || 0;
+    // Remove commas before parsing
+    const revenue = parseInt(formData.revenue.replace(/,/g, '')) || 0;
+    const expenses = parseInt(formData.expenses.replace(/,/g, '')) || 0;
+    const deductions = parseInt(formData.deductions.replace(/,/g, '')) || 0;
     const employeeCount = parseInt(formData.employeeCount) || 0;
     
     if (revenue === 0) {
@@ -38,8 +39,16 @@ export default function TaxCalculatorForm({ onCalculate }: TaxCalculatorFormProp
     onCalculate({ revenue, expenses, deductions, employeeCount });
   };
 
+  const formatNumberWithCommas = (value: string) => {
+    // Remove all non-numeric characters
+    const numericValue = value.replace(/[^0-9]/g, '');
+    // Add commas for thousands separator
+    return numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    const formattedValue = formatNumberWithCommas(value);
+    setFormData(prev => ({ ...prev, [field]: formattedValue }));
   };
 
   return (
@@ -57,11 +66,11 @@ export default function TaxCalculatorForm({ onCalculate }: TaxCalculatorFormProp
                 연간 매출액 (원)
               </Label>
               <Input
-                type="number"
+                type="text"
                 id="revenue"
                 value={formData.revenue}
                 onChange={(e) => handleInputChange('revenue', e.target.value)}
-                placeholder="예: 500000000"
+                placeholder="예: 500,000,000"
                 className="h-12"
               />
             </div>
@@ -71,11 +80,11 @@ export default function TaxCalculatorForm({ onCalculate }: TaxCalculatorFormProp
                 연간 필요경비 (원)
               </Label>
               <Input
-                type="number"
+                type="text"
                 id="expenses"
                 value={formData.expenses}
                 onChange={(e) => handleInputChange('expenses', e.target.value)}
-                placeholder="예: 200000000"
+                placeholder="예: 200,000,000"
                 className="h-12"
               />
             </div>
@@ -87,11 +96,11 @@ export default function TaxCalculatorForm({ onCalculate }: TaxCalculatorFormProp
                 각종 공제액 (원)
               </Label>
               <Input
-                type="number"
+                type="text"
                 id="deductions"
                 value={formData.deductions}
                 onChange={(e) => handleInputChange('deductions', e.target.value)}
-                placeholder="예: 50000000"
+                placeholder="예: 50,000,000"
                 className="h-12"
               />
             </div>

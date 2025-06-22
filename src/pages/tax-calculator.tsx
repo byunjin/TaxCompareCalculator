@@ -7,6 +7,8 @@ import AdditionalConsiderations from "@/components/additional-considerations";
 import EducationalSection from "@/components/educational-section";
 import { calculateIndividualTax, calculateCorporateTax, compareTaxResults } from "@/lib/tax-calculations";
 import type { TaxComparison } from "@/lib/tax-calculations";
+import CoupangWidget from "@/components/CoupangWidget";
+import AdSenseSlot from "@/components/AdSenseSlot";
 
 export default function TaxCalculator() {
   const [calculationResult, setCalculationResult] = useState<{
@@ -50,6 +52,19 @@ export default function TaxCalculator() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* 사이드 광고 (데스크톱 전용) */}
+      <div className="hidden lg:block fixed top-32 right-2 xl:right-6 w-[160px] z-10 bg-black">
+      dsadadsa
+      </div>
+      <CoupangWidget 
+        className="hidden lg:block fixed top-32 left-16 xl:left-16 w-[160px] z-10"
+        bannerId={880307} 
+        trackingCode="AF1730588" />
+      <CoupangWidget 
+        className="hidden lg:block fixed top-32 right-16 xl:right-16 w-[160px] z-10"
+        bannerId={880286} 
+        trackingCode="AF1730588" />
+
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -101,6 +116,14 @@ export default function TaxCalculator() {
           <p className="text-gray-500 text-sm mt-2">정확한 세무 계획을 위해서는 세무 전문가와 상담하시기 바랍니다.</p>
         </div>
       </footer>
+      <div className="flex flex-row justify-center items-center gap-4 mt-8">
+        <CoupangWidget 
+          bannerId={880311} 
+          trackingCode="AF1730588" />
+                <CoupangWidget 
+          bannerId={880310} 
+          trackingCode="AF1730588" />
+      </div>
     </div>
   );
 }

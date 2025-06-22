@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import TaxCalculator from "@/pages/tax-calculator";
 import NotFound from "@/pages/not-found";
 import SentenceSplitterApp from "./pages/sentenceSplitter";
+import NavigationBar from "./components/NavigationBar";
+import GlobalHeader from "./components/GlobalHeader";
 
 function Router() {
   return (
@@ -22,6 +24,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        {/* ─── 공통 헤더 (항상 최상단) ─── */}
+        <GlobalHeader />
+        {/* ─── 페이지 내비게이션 ─── */}
+        <NavigationBar />
         <Router />
       </TooltipProvider>
     </QueryClientProvider>

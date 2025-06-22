@@ -67,6 +67,7 @@ export default function TaxCalculator() {
       </div>
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
+        <title>개인사업자 vs 법인사업자 세금 계산기 - 2025년 기준</title>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-3">

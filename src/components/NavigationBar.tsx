@@ -43,7 +43,17 @@ export default function NavigationBar() {
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={linkCx("/graph")}>
+            <Link href="/graph">
+              <FileText className="h-4 w-4" /> 
+              표&nbsp;→&nbsp;그래프 변환기
+            </Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
       </NavigationMenuList>
+
 
       {/* 선택적: 지시자·뷰포트는 단순 링크라면 없어도 무방 */}
       <NavigationMenuIndicator />

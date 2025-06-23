@@ -9,12 +9,14 @@ import SentenceSplitterApp from "./pages/sentenceSplitter";
 import NavigationBar from "./components/NavigationBar";
 import GlobalHeader from "./components/GlobalHeader";
 import { HelmetProvider } from "react-helmet-async";
+import ScoreToGraphApp from "./pages/scoreToGraph";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={TaxCalculator} />
       <Route path="/pdf" component={SentenceSplitterApp} />
+      <Route path="/graph" component={ScoreToGraphApp} />
       <Route component={NotFound} />
     </Switch>
   );

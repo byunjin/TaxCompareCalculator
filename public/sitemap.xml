@@ -8,11 +8,19 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- 문장 → PDF 도구 -->
+  <!-- 문장 분리기 -->
   <url>
     <loc>https://taxcomparecalculator.pages.dev/pdf</loc>
     <lastmod>2025-06-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
+  </url>
+
+    <!-- 표 → 그래프 -->
+  <url>
+    <loc>https://taxcomparecalculator.pages.dev/graph</loc>
+    <lastmod>2025-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
 </urlset>

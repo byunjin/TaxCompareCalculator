@@ -1,10 +1,10 @@
-// src/pages/sentenceSplitter.tsx
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo } from "react";
 import { jsPDF } from "jspdf";
 import { FileText } from "lucide-react";
 import CoupangWidget from "@/components/CoupangWidget";
 import AdblockSoftModal from "@/components/AdblockSoftModal";
 import { Textarea } from "@/components/ui/textarea";
+import base64Font from "@assets/fonts/malgun.txt?raw";
 
 const PAGE_MARGIN = 15;      // mm
 const HEADER      = 20;
@@ -50,6 +50,10 @@ export default function SentenceSplitterApp() {
   const downloadPdf = () => {
     if (!sentences.length) return;
     const doc  = new jsPDF({ unit: "mm" });
+    doc.addFileToVFS("malgun.ttf", base64Font.trim());
+    doc.addFont("malgun.ttf", "malgun", "normal");
+    doc.setFont("malgun");                     
+
     const w    = doc.internal.pageSize.getWidth()  - PAGE_MARGIN * 2;
     const hMax = doc.internal.pageSize.getHeight() - PAGE_MARGIN;
 
@@ -63,6 +67,7 @@ export default function SentenceSplitterApp() {
     let y = newPage();
     sentences.forEach((s, i) => {
       const wrapped = doc.splitTextToSize(`${i + 1}. ${s}`, w);
+      console.log('wrapped', wrapped);
       if (y + wrapped.length * LINE > hMax) {
         doc.addPage();
         y = newPage();
@@ -70,7 +75,8 @@ export default function SentenceSplitterApp() {
       doc.text(wrapped, PAGE_MARGIN, y);
       y += wrapped.length * LINE + GAP;
     });
-
+      
+    
     doc.save("sentences.pdf");
   };
 
@@ -108,7 +114,7 @@ export default function SentenceSplitterApp() {
         <div className="rounded-lg border bg-white shadow p-6 space-y-6">
           <Textarea
             className="w-full h-40 p-3 border rounded resize-y focus:outline-none focus:ring"
-            placeholder="Paste English passage here…"
+            placeholder="Paste Korean or English passage here…"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
@@ -136,7 +142,7 @@ export default function SentenceSplitterApp() {
       <footer className="bg-gray-900 text-white py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-1">
           <p className="text-gray-400">
-            © 2025 Sentence Splitter. All rights reserved.
+            © 2025 byunjin. All rights reserved.
           </p>
           <p className="text-gray-500 text-sm">
             이 사이트는 광고 수익으로 운영됩니다.

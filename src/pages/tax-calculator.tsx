@@ -113,8 +113,7 @@ export default function TaxCalculator() {
 
       <footer className="bg-gray-900 text-white py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-400">© 2025 세금 계산기. 2025년 세법 기준으로 제작되었습니다.</p>
-          <p className="text-gray-500 text-sm mt-2">정확한 세무 계획을 위해서는 세무 전문가와 상담하시기 바랍니다.</p>
+          <p className="text-gray-400">© 2025 byunjin. All rights reserved. </p>
           <p className="text-gray-500 text-sm mt-2">이 사이트는 광고 수익으로 운영되는 사이트 입니다.</p>
         </div>
       </footer>

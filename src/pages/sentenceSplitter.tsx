@@ -67,7 +67,6 @@ export default function SentenceSplitterApp() {
     let y = newPage();
     sentences.forEach((s, i) => {
       const wrapped = doc.splitTextToSize(`${i + 1}. ${s}`, w);
-      console.log('wrapped', wrapped);
       if (y + wrapped.length * LINE > hMax) {
         doc.addPage();
         y = newPage();
@@ -151,9 +150,10 @@ export default function SentenceSplitterApp() {
       </footer>
 
       {/* 하단 가로형 배너 */}
-      <div className="flex justify-center items-center gap-4 mt-8 overflow-x-auto">
-        <CoupangWidget bannerId={880311} trackingCode="AF1730588" />
+      <div className="flex justify-center items-center gap-4 m-2 overflow-x-auto">
+        <CoupangWidget className="hidden sm:block lg:block" bannerId={880311} trackingCode="AF1730588" />
         <CoupangWidget className="hidden xl:block" bannerId={880310} trackingCode="AF1730588" />
+        <CoupangWidget className="block sm:hidden" bannerId={880782} trackingCode="AF1730588" />
       </div>
     </div>
   );

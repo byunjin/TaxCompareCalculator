@@ -117,14 +117,10 @@ export default function TaxCalculator() {
           <p className="text-gray-500 text-sm mt-2">이 사이트는 광고 수익으로 운영되는 사이트 입니다.</p>
         </div>
       </footer>
-      <div className="flex flex-row justify-center items-center gap-4 mt-8 overflow-y-hidden overflow-x-scroll">
-        <CoupangWidget 
-          bannerId={880311} 
-          trackingCode="AF1730588" />
-        <CoupangWidget
-          className="hidden lg:hidden xl:block" 
-          bannerId={880310} 
-          trackingCode="AF1730588" />
+      <div className="flex justify-center items-center gap-4 m-2 overflow-x-auto">
+        <CoupangWidget className="hidden sm:block lg:block" bannerId={880311} trackingCode="AF1730588" />
+        <CoupangWidget className="hidden xl:block" bannerId={880310} trackingCode="AF1730588" />
+        <CoupangWidget className="block sm:hidden" bannerId={880782} trackingCode="AF1730588" />
       </div>
     </div>
   );

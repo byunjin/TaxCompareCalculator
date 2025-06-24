@@ -1,5 +1,4 @@
 import { renderToString } from 'react-dom/server';
-import { HelmetProvider } from 'react-helmet-async';
 import App from './src/App';
 
 /* ─────────── Node 환경 localStorage 폴리필 ─────────── */
@@ -21,15 +20,10 @@ export async function prerender() {
 
   const html = renderToString(<App helmetCtx={helmetCtx} />);
   
-  console.log('Prerendered HTML:', html); // 디버깅용
-
   /* Helmet이 만든 태그들 추출 */
   const rawTitle  = helmetCtx.helmet.title?.toString() ?? '';     // <title …>텍스트</title>
-  console.log('Prerendered rawTitle:', rawTitle); // 디버깅용
   const titleText = rawTitle.replace(/<\/?title[^>]*>/g, '');     // → 텍스트만
-  console.log('Prerendered titleText:', titleText); // 디버깅용
   const metaTags  = helmetCtx.helmet.meta?.toString()  ?? '';     // 그대로 사용
-  console.log('Prerendered metaTags:', metaTags); // 디버깅용
 
   /* 플러그인에 결과 전달 */
   return {

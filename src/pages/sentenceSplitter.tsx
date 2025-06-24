@@ -121,7 +121,7 @@ export default function SentenceSplitterApp() {
           <div className="rounded-lg border bg-white shadow p-6 space-y-6">
             <Textarea
               className="w-full h-40 p-3 border rounded resize-y focus:outline-none focus:ring"
-              placeholder="Paste Korean or English passage here…"
+              placeholder="한글이나 영어 지문을 붙여 넣으세요. 문장 단위로 분리됩니다."
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />

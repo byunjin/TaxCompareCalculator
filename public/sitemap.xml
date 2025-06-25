@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 홈 (세금 계산기) -->
+    <!-- 홈 (세금 계산기) -->
   <url>
-    <loc>https://taxcomparecalculator.pages.dev/</loc>
-    <lastmod>2025-06-23</lastmod>
+    <loc>https://tool.surpass-lab.com/</loc>
+    <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- 문장 분리기 -->
   <url>
-    <loc>https://taxcomparecalculator.pages.dev/pdf</loc>
-    <lastmod>2025-06-23</lastmod>
+    <loc>https://tool.surpass-lab.com/pdf</loc>
+    <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
     <!-- 표 → 그래프 -->
   <url>
-    <loc>https://taxcomparecalculator.pages.dev/graph</loc>
-    <lastmod>2025-06-23</lastmod>
+    <loc>https://tool.surpass-lab.com/graph</loc>
+    <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
